@@ -8,15 +8,16 @@
             <input type="text" class="form-control" placeholder="Enter Username" id="username">
         </div>
         <div class="m-3 ">
-            <label for="email1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="email">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="email">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="m-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" placeholder="email">
         </div>
-        <button type="submit" class="btn btn-primary mx-3">Submit</button>
     </form>
+    <button id="btn-save"  class="btn btn-primary mx-3">Submit</button>
 </div>
+<script src="/blog/js/user.js"></script>
 <%@include file="../layout/footer.jsp" %>
