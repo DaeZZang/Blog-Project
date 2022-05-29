@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal"/>
+</sec:authorize>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,30 +22,30 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/blog/">SJ's BLog</a>
+        <a class="navbar-brand" href="/">SJ's BLog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <c:choose>
-                    <c:when test="${empty sessionScope.principal}">
+                    <c:when test="${empty principal}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog/user/joinForm">Join</a>
+                            <a class="nav-link" href="/joinForm">Join</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog/user/loginForm">Login</a>
+                            <a class="nav-link" href="/loginForm">Login</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog/board/writeForm">글쓰기</a>
+                            <a class="nav-link" href="/board/writeForm">글쓰기</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog/user/userForm">회원정보</a>
+                            <a class="nav-link" href="/user/userForm">회원정보</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/blog/user/logout">로그아웃</a>
+                            <a class="nav-link" href="/logout">로그아웃</a>
                         </li>
                     </c:otherwise>
                 </c:choose>
