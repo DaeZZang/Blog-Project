@@ -31,10 +31,10 @@
                 <c:choose>
                     <c:when test="${empty principal}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/joinForm">Join</a>
+                            <a class="nav-link" href="auth/joinForm">Join</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/loginForm">Login</a>
+                            <a class="nav-link" href="auth/loginForm">Login</a>
                         </li>
                     </c:when>
                     <c:otherwise>
