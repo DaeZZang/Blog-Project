@@ -4,8 +4,10 @@ import com.sj.blog.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface UserRepository extends JpaRepository<User,Integer> {
+import java.util.Optional;
 
+public interface UserRepository extends JpaRepository<User,Integer> {
+    Optional<User> findByUsername(String username);
 }
 //JPA 네이밍 쿼리
 //SELECT * FROM user WHERE username = ?1 AND password = ?2 의 의미와 같다.
