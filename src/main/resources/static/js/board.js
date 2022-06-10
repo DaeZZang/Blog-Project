@@ -6,6 +6,9 @@ let index = {
         $("#btn-delete").on("click", () => {
             this.deleteById();
         });
+        $("#btn-update").on("click", () => {
+            this.update();
+        });
     },
     save: function () {
         let data = {
@@ -33,6 +36,26 @@ let index = {
             data: "json"
         }).done((reponse) => {
             alert("삭제 완료");
+            location.href = "/";
+        }).fail((e) => {
+            alert(JSON.stringify(e));
+        });
+    },
+    update: function () {
+        let id = $('#id').val();
+
+        let data = {
+            title: $("#title").val(),
+            content: $("#content").val()
+        }
+        $.ajax({
+            type: "PUT",
+            url: "/api/board/"+id,
+            data: JSON.stringify(data), // http body 데이터
+            contentType: "application/json;charset=utf-8", //body 데이터 타입(MIME)
+            dataType: "json" //서버에게 요청하여 응답 받은 데이터의 종류는 기본적으로 응답은 버퍼, 즉 string으로 온다 근데 생긴게 json이면 javaScript 객체로 바꿔준다
+        }).done((reponse) => {
+            alert("글수정 완료");
             location.href = "/";
         }).fail((e) => {
             alert(JSON.stringify(e));

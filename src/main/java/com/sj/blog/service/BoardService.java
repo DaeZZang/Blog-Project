@@ -50,4 +50,14 @@ public class BoardService {
     public void 삭제하기(int id) {
         boardRepository.deleteById(id);
     }
+    @Transactional
+    public void 수정하기(int id, Board requestBoard){
+        Board board =boardRepository.findById(id)
+        .orElseThrow(()->{
+            return new IllegalArgumentException("글 찾기 실패!!!");
+        });//영속화 완료
+        board.setTitle(requestBoard.getTitle());
+        board.setContent(requestBoard.getContent());
+        //해당함수로 종료시(service가 종료될 때) 트랜잭션이 종료됩니다. 이때 더티체킹 자동 업데이트가 됩니다. db쪽으로 flush(commit)이 됨
+    }
 }
