@@ -13,10 +13,12 @@
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="email" value="${principal.user.email}">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-        <div class="m-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="password">
-        </div>
+        <c:if test="${empty principal.user.oauth}">
+            <div class="m-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="password">
+            </div>
+        </c:if>
     </form>
     <button id="btn-update"  class="btn btn-primary mx-3">회원수정완료</button>
 </div>
