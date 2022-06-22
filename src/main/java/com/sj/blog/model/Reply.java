@@ -33,4 +33,10 @@ public class Reply {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    public void update(User user, Board board,String content){
+        setBoard(board);
+        setUser(user);
+        setContent(content);
+    }
 }
