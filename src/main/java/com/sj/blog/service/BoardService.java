@@ -87,5 +87,6 @@ public class BoardService {
         Reply reply = new Reply();
         reply.update(user,board,replySaveRequestDto.getContent());
         replyRepository.save(reply);
+        //replyRepository.mSave(reply);
     }
 }
