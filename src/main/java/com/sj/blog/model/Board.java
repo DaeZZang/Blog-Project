@@ -35,7 +35,7 @@ public class Board {
     private User user;//DB는 오브젝트 저장X 자바는 가능
 
     @JsonIgnoreProperties({"borad"})//다이렉트로 참조하면 보여주지만 보드를 통해 참조하면 안 보여줌
-    @OneToMany(mappedBy = "board",fetch = FetchType.EAGER)//연관관계의 주인이 아니다.
+    @OneToMany(mappedBy = "board",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)//연관관계의 주인이 아니다.
     @OrderBy("id desc")
     private List<Reply> replys;
 
